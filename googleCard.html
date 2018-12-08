@@ -37,6 +37,11 @@
   </style>  
 </head>
 <body>
+
+  <a href="htmlSemantics.html">Go to html sematics page</a>
+
+  <hr>
+
   <div class="fullCard" id="thumbnail">
     <div class="cardContent">
       <div class="cardText">
@@ -50,6 +55,89 @@
       </div>
     </div>
   </div>
+
+  <hr>
+  <h3>Using various html tags</h3>
+
+  <!-- Table -->
+  <table style="margin-top: 2rem;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+      </tr>      
+    </thead>
+    <tbody>
+      <tr>
+        <td>Shachee</td>
+        <td>shach@gmail.com</td>
+        <td>32</td>
+      </tr>
+      <tr>
+        <td>Jane Doe</td>
+        <td>jane@gmail.com</td>
+        <td>22</td>
+      </tr>
+    </tbody>
+  </table> 
+
+  <br>
+
+  <!-- Form ---> 
+  <form action="process.php" method="POST">
+    <label>First Name</label>
+    <input type="text" name="fname">
+    <label>Last Name</label>
+    <input type="text" name="lname">
+    <br><br>
+    <div>
+      <label>Email</label>
+      <input type="email" name="email">
+    </div>
+    <br>
+    <div>
+      <label>Message</label>
+      <textarea name="message"></textarea>
+    </div>
+    <br>
+    <label>Gender</label>
+    <select name="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+    <label>Age</label>
+    <input type="number" name="age" value="30">
+    <br><br>
+    <div>
+      <label>Birthday</label>
+      <input type="date" name="birthday">
+    </div>
+    <br>
+    <input type="submit" name="submit" value="Submit">
+  </form>
+
+  <!-- Buttons -->
+  <br>
+  <button>Click Me</button>
+
+  <br>
+  <!-- Images -->
+  <img src="coffee.jpg" alt="Coffee" width="150px" height="150px">
+
+
+  <!-- Quote --> 
+  <blockquote cite="http://example.com">
+    A journey of a thousand miles must begin with a single step!
+  </blockquote>
+
+  <br>
+
+  <h3>I am saying <abbr title="Thank God It's Friday">TGIF</abbr> even though I love my work!</h3>
+
+  <p><cite>HTML crash course</cite> is great!</p>
+
 </body>
 </html>
 
