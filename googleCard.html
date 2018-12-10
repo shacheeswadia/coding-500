@@ -9,9 +9,11 @@
       padding: 10px;
       font-size: 27px;
     }
+
     p {
       text-align: justify;
     }
+
     .links {
       text-align: left;
       color: black;
@@ -29,6 +31,7 @@
       padding: 4px;
       display: inline-block;
     }
+
     .cardContent {
       padding: 10px;
       /*background: repeating-linear-gradient(
@@ -42,14 +45,17 @@
     .textured-bg{
       background: url("https://i.imgur.com/MJAkxbh.png");
     }
+
     .cardText {
       margin-bottom: 30px;
     }
+
     .shaded-bg{
       padding: 10px;
       background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
       transform: skewX(24deg);
     }
+
     .striped-bg{
       padding: 10px;
       background: repeating-linear-gradient(
@@ -100,7 +106,11 @@
       height: 50px;
       width: 50px;
       transform: rotate(-45deg);
+      animation-name: beat;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
     }
+
     .heart::after {
       background-color: pink;
       content: "";
@@ -111,6 +121,7 @@
       top: 0px;
       left: 25px;
     }
+
     .heart::before {
       content: "";
       background-color: pink;
@@ -122,27 +133,39 @@
       left: 0px;
     }
 
+    @keyframes beat {
+      0% {
+        transform: scale(1) rotate(-45deg); /*Have to use rotate property again
+        otherwise the scale property overrides the rotate property defined in the 
+        heart class*/
+      }
+      50% {
+        transform: scale(0.6) rotate(-45deg);
+      }
+    }
+
     #rainbow{
       display: inline-block;
-      height: 40px;
-      width: 70px;
+      height: 50px;
+      width: 80px;
       background: teal;
       margin-left:  2rem;
       border-radius: 5px; 
       animation-name: rainbow;
-      animation-duration: 4s; 
+      animation-duration: 2s; 
+      animation-iteration-count: infinite;
     }
 
     @keyframes rainbow {
       0% {
-        background-color: blue;
-        opacity: 0;
+        background-color: teal;
+        opacity: 1;
       }
 
       50%{
         background-color: cyan;
         opacity: 0.5;
-        margin-bottom: 25px;
+        margin-bottom: 50px;
       }
 
       100% {
@@ -152,18 +175,22 @@
     }
 
     #ball {
-      width: 100px;
-      height: 100px;
-      margin: 50px auto;
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      margin: 50px auto 50px 25px;
       position: relative;
       border-radius: 50%;
       background: linear-gradient(
         35deg,
-        #ccffff,
-        #ffcccc
+        red,
+        orange
       );
       animation-name: bounce;
-      animation-duration: 1s;
+      animation-duration: 1.5s;
+      /*animation-timing-function: ease-in;*/
+      /*animation-timing-function: cubic-bezier(0.311, 0.441, 0.444, 1.649);*/
+      animation-timing-function:cubic-bezier(0.3, 0.4, 0.5, 1.6);
       animation-iteration-count: infinite;
     }
 
@@ -173,8 +200,8 @@
       }
       50% {
         top: 249px;
-        width: 130px;
-        height: 70px;
+        width: 110px;
+        height: 60px;
       }
       100% {
         top: 0px;
