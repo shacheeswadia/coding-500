@@ -27,13 +27,91 @@
       border-radius: 5px;
       margin: 10px 5px;
       padding: 4px;
+      display: inline-block;
     }
     .cardContent {
       padding: 10px;
+      /*background: repeating-linear-gradient(
+          45deg,
+          yellow 0px,
+          yellow 40px,
+          black 40px,
+          black 80px
+      );*/      
+    }
+    .textured-bg{
+      background: url("https://i.imgur.com/MJAkxbh.png");
     }
     .cardText {
       margin-bottom: 30px;
     }
+    .shaded-bg{
+      padding: 10px;
+      background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
+      transform: skewX(24deg);
+    }
+    .striped-bg{
+      padding: 10px;
+      background: repeating-linear-gradient(
+          45deg,
+          yellow 0px,
+          yellow 40px,
+          cyan 40px,
+          cyan 80px
+        );
+    }
+    .scale-size{
+      transform: scale(1.2);
+      margin-left: 2em;
+      margin-top: 1em;
+    }
+    .hover-scale:hover{
+      transform: scale(1.5);
+      margin-left: 2em;
+    }
+    .crescent-moon{
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      
+      background-color: transparent;
+      border-radius: 50%;
+      box-shadow: 25px 10px 0px 0px #373636; 
+  }
+  .heart {
+    position: absolute;
+    display: inline-block;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50px;
+    background-color: pink;
+    height: 50px;
+    width: 50px;
+    transform: rotate(-45deg);
+  }
+  .heart::after {
+    background-color: pink;
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0px;
+    left: 25px;
+  }
+  .heart::before {
+    content: "";
+    background-color: pink;
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 0px;
+  }
+
   </style>  
 </head>
 <body>
@@ -43,7 +121,7 @@
   <hr>
 
   <div class="fullCard" id="thumbnail">
-    <div class="cardContent">
+    <div class="cardContent textured-bg">
       <div class="cardText">
         <h4><s>Google</s> Alphabet</h4>
         <hr>
@@ -56,8 +134,28 @@
     </div>
   </div>
 
+  <div class="fullCard" id="thumbnail">
+    <div class="cardContent no-bg">
+      <div class="cardText">
+        <h4><s>Google</s> Alphabet</h4>
+        <hr>
+        <p><em>Google was founded by Larry Page and Sergey Brin while they were <u>Ph.D. students</u> at <strong>Stanford University</strong>.</em></p>
+      </div>
+      <div class="cardLinks">
+        <a href="https://en.wikipedia.org/wiki/Larry_Page" target="_blank" class="links">Larry Page</a><br><br>
+        <a href="https://en.wikipedia.org/wiki/Sergey_Brin" target="_blank" class="links">Sergey Brin</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="crescent-moon">
+  </div>
+
+  <div class="heart">
+  </div>
+
   <hr>
-  <h3>Using various html tags</h3>
+  <h3 class="striped-bg">Using various html tags</h3>
 
   <!-- Table -->
   <table style="margin-top: 2rem;">
@@ -120,7 +218,9 @@
 
   <!-- Buttons -->
   <br>
-  <button>Click Me</button>
+  <button class="hover-scale">Click Me</button>
+  <br>
+  <button class="scale-size">No Click Me, I am bigger</button>
 
   <br>
   <!-- Images -->
@@ -128,7 +228,7 @@
 
 
   <!-- Quote --> 
-  <blockquote cite="http://example.com">
+  <blockquote cite="http://example.com" class="shaded-bg">
     A journey of a thousand miles must begin with a single step!
   </blockquote>
 
