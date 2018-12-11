@@ -57,6 +57,14 @@
     }
 
     .striped-bg{
+      width: 15vw; 
+      /* 
+          Use of viewport to adjust dimensions 
+          vw: 10vw would be 10% of the viewport's width.
+          vh: 3vh would be 3% of the viewport's height.
+          vmin: 70vmin would be 70% of the viewport's smaller dimension (height vs. width).
+          vmax: 100vmax would be 100% of the viewport's bigger dimension (height vs. width).
+      */
       padding: 10px;
       background: repeating-linear-gradient(
           45deg,
@@ -213,6 +221,18 @@
       right: 50px;  
     }
 
+    .imgDiv{
+      width: 250px;
+      height: 350px;
+      vertical-align: middle; /*Doesnt work - to be checked*/
+    }
+
+    img{
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+
   </style>  
 </head>
 <body>
@@ -333,8 +353,13 @@
   <button class="scale-size">No Click Me, I am bigger</button>
 
   <br>
-  <!-- Images -->
+  <!-- Images without scaling-->
   <img src="coffee.jpg" alt="Coffee" width="150px" height="150px">
+
+  <!-- Image with scaling -->
+  <div class="imgDiv">
+    <img class="scalableImg" src="coffee.jpg" alt="Coffee">
+  </div>
 
 
   <!-- Quote --> 
