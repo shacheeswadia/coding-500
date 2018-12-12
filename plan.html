@@ -3,36 +3,79 @@
 <head>
 	<title>Plan</title>
 	<style type="text/css">
+		body{
+			/*margin-left: 0.5em;*/
+		}
+
+		.container{
+			max-width: 450px;
+			margin: auto;
+		}
+
+		h2{
+			text-align: center;
+		}
+
+		h4, h5{
+			margin: 0.5em 0;
+		}
+		.end-date{
+			display: inline-block;
+		}
+
+		h5{
+			font-size: 16px;
+		}
+
+		fieldset{
+			margin-bottom: 1rem;
+		}
 	</style>
 </head>
 <body>
 
-	<h2 class="shaded-bg">Plan for coding 500 hours</h2>
+	<section class="container">
 
-	<h4>Start Date: - 1 December</h4>
-	<h4>End Date: - 31 May</h4>
-	
-	<h4>Total Weeks = 20</h4>
-	
-	<p>Vacation = 2 weeks in Februrary</p>
-	<p>Buffer = Last 2 weeks of May</p>
+		<h2 class="shaded-bg">Plan for coding 500 hours</h2>
 
-	<h4 class="striped-bg">20 weeks --> 500 hours</h4>
-	<p>25 hours per week = 5 hours per day</p>
+		<fieldset>
+			<h4>Start Date: - 1 December</h4>
+			<h4 class="end-date"><s>End Date: - 31 May</s></h4>
+			<h4 class="end-date">End Date: - 30 June</h4>
+			<h4>Total Work Weeks = 20</h4>
+		</fieldset>
+		
+		
+		<fieldset class="off-days">
+			<h5>The digressions</h5>
+			<p>December 3 hours/ day = 60 hours instead of 100 hours</p>
+			<p>Vacation = 2 weeks ski vacation in Februrary</p>
+			<p>Hols = 1 week trekking in March</p>
+			<p>Wedding = 1 week in April/May</p>
+			<p>Buffer = Last 2 weeks of June</p>
+		</fieldset>
 
-	<h5>Work day = 6 hours</h5>
-	<h5>1 hour per day --> Small jobs hunting</h5>
+		<fieldset>
+			<h4 class="striped-bg">20 weeks --> 500 hours</h4>
+			<p>25 hours per week = 5 hours per day</p>
 
-	<h4>Schedule - Monday to Saturday</h4>
-	<ul>
-		<li>2 hours --> 9:45am to 12:45pm</li>
-		<li>2 hours --> 2:45pm to 5:15pm</li>
-		<li>1 hour --> 6:00pm to 7:00pm</li>
-		<li>Cover up hours --> 7:30pm to 8:30pm and 10:00pm to 11:00pm</li>
-	</ul>
+			<h5>Work day = 6 hours</h5>
+			<h5>1 hour per day --> Small jobs hunting</h5>
+		</fieldset>
 
-	<p>Monday to Friday --> 4 hours coding and 1 hour job hunt</p>
-	<p>Saturday --> 5 hours coding</p>
+		<fieldset>
+			<h4>Schedule - Monday to Saturday</h4>
+			<ul>
+				<li>2 hours --> 9:45am to 12:45pm</li>
+				<li>2 hours --> 2:45pm to 5:15pm</li>
+				<li>1 hour --> 6:00pm to 7:00pm</li>
+				<li>Cover up hours --> 7:30pm to 8:30pm and 10:00pm to 11:00pm</li>
+			</ul>
 
+			<p>Monday to Friday --> 4 hours coding and 1 hour job hunt</p>
+			<p>Saturday --> 5 hours coding</p>
+		</fieldset>
+
+	</section>
 </body>
 </html>
