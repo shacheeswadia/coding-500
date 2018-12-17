@@ -3,24 +3,95 @@
 <head>
 	<title>Cat Blog</title>
 	<style type="text/css">
-	.sr-only {
-		position: absolute;
-		left: -10000px;
-		width: 1px;
-		height: 1px;
-		top: auto;
-		overflow: hidden;
-	}
+		.sr-only {
+			position: absolute;
+			left: -10000px;
+			width: 1px;
+			height: 1px;
+			top: auto;
+			overflow: hidden;
+		}
 
-	p:focus {
-		background-color: yellow;
-	}
+		p:focus {
+			background-color: yellow;
+		}
+
+		#flex-box-colors{
+			height: 200px;
+		}
+
+		#box-container1 {
+		    background: lightgray;
+		    display: flex;
+		    height: 40%;
+		    justify-content: space-around;/*space-between, flex-start, flex-end, center*/
+		    align-items: center; /*flex-start, flex-end, stretch, baseline*/
+		    margin-bottom: 1rem;
+		}
+
+		#box-container2{
+			background: lightgray;
+		    display: flex;
+		    height: 40%;
+		    flex-wrap: wrap;
+		}
+
+		#box-1 {
+		    background-color: dodgerblue;
+		    width: 25%;
+		    height: 75%;
+		}
+
+		#box-2 {
+		    background-color: orangered;
+		    width: 25%;
+		    height: 100%;
+		}
+
+		#box-3 {
+		    background-color: violet;
+		    width: 35%;
+		    height: 50%;
+		    flex-shrink: 1;
+	  	}
+	  	#box-4 {
+		    background-color: yellow;
+		    width: 35%;
+		    height: 50%;
+		    flex-shrink: 1;
+	  	}
+	  	#box-5 {
+		    background-color: green;
+		    width: 30%;
+		    height: 50%;
+		    flex-shrink: 2;
+		}
+		#box-6 {
+		    background-color: black;
+		    width: 30%;
+		    height: 50%;
+		    flex-shrink: 2;
+		}
+
 	</style>
 </head>
 <body>
 	<header>
 		<h1>Deep Thoughts with Master Camper Cat</h1>
 	</header>
+
+	<section id="flex-box-colors">
+		<div id="box-container1">
+		  <div id="box-1"></div>
+		  <div id="box-2"></div>
+		</div>
+		<div id="box-container2">
+		  <div id="box-3"></div>
+		  <div id="box-4"></div>
+		  <div id="box-5"></div>
+		  <div id="box-6"></div>
+		</div>
+	</section>
 
 	<section>
 	    <form>
