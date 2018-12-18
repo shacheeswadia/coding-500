@@ -4,9 +4,21 @@
 	<title>Boxes</title>
 
 	<style>
+
+		#outerContainer1{
+			display: inline-flex;
+			width: 500px;
+		}
+
+		#outerContainer2{
+			display: inline-flex;
+			width: 500px;
+		}
+
 		#box-container {
 			display: flex;
-			height: 400px;
+			height: 300px;
+			width: 100%;
 		}
 
 		#box-1 {
@@ -78,16 +90,84 @@
 			/*grid-area: horizontal line to start at / vertical line to start at / horizontal line to end at / vertical line to end at;*/
 		}
 
+		.item1 {
+			background: LightSkyBlue;
+			grid-area: header;
+		}
+
+		.item2 {
+			background: LightSalmon;
+			grid-area: advert;
+		}
+
+		.item3 {
+			background: PaleTurquoise;
+			grid-area: content;
+		}
+
+		.item4 {
+			background: lightpink;
+			grid-area: footer;
+		}
+
+		.item-container {
+			font-size: 1.5em;
+			min-height: 300px;
+			width: 50%;
+			margin-bottom: 2rem;
+			background: LightGray;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: 50px auto 1fr auto;
+			grid-gap: 10px;
+			grid-template-areas:
+			"header"
+			"advert"
+			"content"
+			"footer";
+		}
+
+		@media (min-width: 300px){
+			.item-container{
+				grid-template-columns: auto 1fr;
+				grid-template-rows: auto 1fr auto;
+				grid-template-areas:
+				"advert header"
+				"advert content"
+				"advert footer";
+			}
+		}
+
+		@media (min-width: 400px){
+			.item-container{
+				grid-template-areas:
+				"header header"
+				"advert content"
+				"footer footer";
+			}
+		}
+
 	</style>
 
 </head>
 
 <body>
 
-	<div id="box-container">
-	  <div id="box-1"></div>
-	  <div id="box-2"></div>
+	<div id="outerContainer1">
+		<div id="box-container">
+		  <div id="box-1"></div>
+		  <div id="box-2"></div>
+		</div>
 	</div>
+
+	<div id="outerContainer2">
+		<div class="item-container">
+		  <div class="item1">header</div>
+		  <div class="item2">advert</div>
+		  <div class="item3">content</div>
+		  <div class="item4">footer</div>
+		</div>
+	</div>	
 
 	<div class="container">
 	  <div class="d1">1</div>
