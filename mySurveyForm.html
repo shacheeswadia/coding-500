@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Survey Form</title>
+	
+	<style type="text/css">
+
+		body{
+			background-color: #efefef;
+		}
+		
+		#myForm{
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			font-family: monospace;
+			background-color: #ffff;
+			max-width: 900px;
+			padding: 1rem;
+		}
+
+		#title{
+			margin-bottom: 0;
+		}
+
+		.blue-font{
+			color: dodgerblue;
+		}
+
+		#description{
+			font-size: 18px;
+			margin-top: 0.5rem;
+		}
+
+		#survey-form{
+			background-color: aliceblue;
+			padding: 1rem;
+		}
+
+		.form-element{
+			margin-bottom: 1rem;
+			font-size: 16px;
+		}
+
+		.form-element .labels{
+			width: 45%;
+			display: inline-block;
+			text-align: right;
+			vertical-align: top;
+		}
+
+		.form-element .input-holders{
+			width: 45%;
+			display: inline-block;
+			text-align: left;
+		}
+
+		#survey-form input{
+			padding: 0.25rem;
+		}
+
+		#survey-form .min-width{
+			min-width: 202px;
+		}
+
+		#dropdown {
+			padding: 0.25rem;
+		}
+
+		#othergoals{
+			height: 79px; 
+			resize: vertical; 
+			padding: 0.25rem;
+		}
+
+		#submit{
+			padding: 0.75rem 2rem;
+		    background-color: dodgerblue;
+		    color: white;
+		    border: solid 1px white;
+		    border-radius: 0.25rem;
+		    font-size: 16px;
+		    font-family: monospace;
+		    cursor: pointer;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div id="myForm">
+		<header>
+			<h1 id="title" class="blue-font">Survey Form</h1>
+			<p id="description">Your goals for the year 2019</p>
+		</header>
+
+		<form id="survey-form">
+
+			<div class="form-element">
+				<div class="labels">
+					<label id="name-label" for="name">Name: </label>
+				</div>
+				<div class="input-holders">
+					<input type="text" name="name" id="name" placeholder="Enter your first name" class="min-width" required>
+				</div>
+			</div>
+
+			<div class="form-element">
+				<div class="labels">
+					<label id="email-label" for="email">Email: </label>
+				</div>
+				<div class="input-holders">
+					<input type="email" name="email" id="email" placeholder="Enter your email address" class="min-width" required>
+				</div>
+			</div>
+
+			<div class="form-element">
+				<div class="labels">
+					<label id="number-label" for="number">Age: </label>
+				</div>
+				<div class="input-holders">
+					<input type="number" name="age" id="number" placeholder="Enter your age" min="10" max="110" class="min-width" required>
+				</div>
+			</div>
+
+			<div class="form-element">
+				<div class="labels">
+					<label>Select your profession:</label>
+				</div>
+				<div class="input-holders">
+					<select id="dropdown">
+						<option>Professional</option>
+						<option>Self-employed</option>
+						<option>Homemaker</option>
+						<option>Student</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-element">
+				<div class="labels">
+					<label>Select your gender:</label>
+				</div>
+				<div class="input-holders">
+					<input type="radio" name="gender" id="male" value="male">
+					<label for="male">Male</label></br>
+					<input type="radio" name="gender" id="female" value="female">
+					<label for="female">Female</label></br>
+					<input type="radio" name="gender" id="other" value="other">
+					<label for="other">Other</label>
+				</div>
+			</div>
+
+			<div class="form-element">
+				<div class="labels">
+					<label>Select your goals:</label>
+				</div>
+				<div class="input-holders">
+					<input type="checkbox" name="goals" id="goal1" value="goal1">
+					<label for="goal1">Travel more</label></br>
+					<input type="checkbox" name="goals" id="goal2" value="goal2">
+					<label for="goal2">Be more social</label></br>
+					<input type="checkbox" name="goals" id="goal3" value="goal3">
+					<label for="goal3">Be regular in physical workout</label></br>
+					<input type="checkbox" name="goals" id="goal4" value="goal4">
+					<label for="goal4">Healthy diet consumption</label></br>
+					<input type="checkbox" name="goals" id="goal5" value="goal5">
+					<label for="goal5">Be more organized</label></br>
+					<input type="checkbox" name="goals" id="goal6" value="goal6">
+					<label for="goal6">Pursue more hobbies</label>
+				</div>
+			</div>
+
+			<div class="form-element">
+				<div class="labels">
+					<label for="othergoals">Any other important goal:</label>
+				</div>
+				<div class="input-holders">
+					<textarea id="othergoals" placeholder="Enter your goal here" class="min-width"></textarea> 	
+				</div>
+			</div>
+
+			<button id="submit">Submit</button>
+
+		</form>
+
+	</div>
+
+</body>
+</html>
