@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product Landing Page</title>
+
+	<style type="text/css">
+
+		body{
+			font-family: monospace;
+			margin: 0;
+		}
+		
+		#header{
+			display: flex;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			margin-bottom: 1rem;
+			background-color: #71c3ba;
+			color: white;
+			height: 75px;
+			justify-content: space-between;
+		}
+
+		#header-img{
+			width: 75px;
+			height: 75px;
+		}
+
+		#nav-bar{
+			font-size: 18px;
+    		margin-right: 1rem;
+    		margin: 0.5rem;
+		}
+
+
+		#nav-bar li{
+			display: inline-block;
+		}
+
+		.nav-link{
+			text-decoration: none;
+			color: white;
+		}
+
+		#buy-now{
+			display: flex;
+			margin-top: 75px;
+			flex-direction: column;
+			text-align: center;
+			color: green;
+		}
+
+		#email{
+			width: 200px;
+    		padding: 0.25rem;
+		}
+
+		.plant-btn{
+			padding: 0.27rem 0.75rem;
+			background-color: #71c3ba;
+			border-width: 1px;
+			color: white;
+			cursor: pointer;
+		}
+
+		#plant-types{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			margin-top: 2rem;
+		}
+
+		.plant-type-option{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: calc(60% / 3);
+			border: solid 1px #000;
+			margin: 2rem;
+			padding: 0 0 1rem 0;
+		}
+
+		.option-name{
+			background-color: #8fc06f;
+			color: white;
+			font-size: 16px;
+			width: 100%;
+			text-transform: uppercase;
+			padding: 1rem 0;
+			font-weight: 700;
+			text-align: center;
+		}
+
+		.plant-type-option h2{
+			font-size: 14px;
+			margin-bottom: 0;
+		}
+
+		#plant-decor{
+			display: flex;
+			justify-content: center;
+			margin-top: 2rem;
+		}
+
+		#pricing{
+			display: flex;
+			text-align: center;
+			margin-top: 2rem;
+			flex-direction: column;
+			background-color: #8fc06f;
+			color: white;
+		}
+
+		#pricing h2{
+			border-bottom: solid 1px white;
+    		padding: 0 0 0.5rem 0;
+		}
+
+		#pricing ul{
+			font-size: 16px;
+	    	list-style: none;
+	    }
+
+	    #pricing li{
+	    	margin-bottom: 0.5rem;
+	    }
+
+	    @media (max-width: 950px){
+
+	    	#plant-types{
+	    		flex-direction: column;
+	    	}
+
+	    	.plant-type-option{
+				max-width: 300px;
+				width: 100%;
+				margin: 0 auto;
+				margin-bottom: 1rem;
+			}
+	    }
+
+	</style>
+
+</head>
+<body>
+
+	<header id="header">
+		<img src="img/logo.png" id="header-img"> 
+		<!--https://drive.google.com/file/d/1iP5nJ9bfP9w9zWtdRbONP5TQ5E0Fqkhh/view?usp=sharing-->
+		<nav id="nav-bar">
+			<ul>
+				<li>
+					<a href="#plant-types" class="nav-link">
+						Type of Plants
+					</a>
+					<span>|</span>
+				</li>
+
+				<li>
+					<a href="#plant-decor" class="nav-link">
+						Decor ideas
+					</a>
+					<span>|</span>
+				</li>
+
+				<li>
+					<a href="#pricing" class="nav-link">
+						Pricing
+					</a>
+				</li>
+			</ul>			
+		</nav>
+	</header>
+
+	<section id="buy-now">
+		<h1>Green and vibrant plants</h1>
+		<form id="form" action="https://www.freecodecamp.com/email-submit">
+			<input id="email" type="email" name="email" placeholder="Please enter your email" required> 
+			<input id="submit" class="plant-btn" type="submit" name="submit" value="Buy Now" class="btn">
+		</form>
+	</section>
+
+	<section id="plant-types">
+		<div id="indoor" class="plant-type-option">
+			<div class="option-name">
+				Indoor Plants
+			</div>
+			<h2>Inside the house</h2>
+			<ol>
+				<li>Lorem Ipsum</li>
+				<li>Lorem Ipsum</li>
+				<li>Lorem Ipsum</li>
+			</ol>
+			<button class="plant-btn">Know More</button>
+		</div>
+		<div id="outdoor" class="plant-type-option">
+			<div class="option-name">
+				Outdoor Plants
+			</div>
+			<h2>In the garden</h2>
+			<ol>
+				<li>Lorem Ipsum</li>
+				<li>Lorem Ipsum</li>
+				<li>Lorem Ipsum</li>
+			</ol>
+			<button class="plant-btn">Know More</button>
+		</div>
+		<div id="others" class="plant-type-option">
+			<div class="option-name">
+				Other Plants
+			</div>
+			<h2>In the balcony/veranda</h2>
+			<ol>
+				<li>Lorem Ipsum</li>
+				<li>Lorem Ipsum</li>
+				<li>Lorem Ipsum</li>
+			</ol>
+			<button class="plant-btn">Know More</button>
+		</div>
+	</section>
+
+	<section id="plant-decor">
+		<iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/Szb13BcNzkM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</iframe>	
+	</section>
+
+	<section id="pricing">
+		<h2>Price Options</h2>
+		<ul>
+			<li class="price-options">
+				Durable plants at economical cost
+			</li>
+			<li class="price-options">
+				Modern and stylish plants 
+			</li>
+			<li class="price-options">
+				Unique high value plants 
+			</li>
+		</ul>	
+	</section>
+	
+</body>
+</html>
