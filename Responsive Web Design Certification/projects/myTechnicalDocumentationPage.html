@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Technical Documentation Page</title>
+
+	<style type="text/css">
+
+		body{
+			color: #515050;
+			font-family: 'Open Sans',Arial,sans-serif;
+			line-height: 1.5;
+		}
+		
+		h1{
+			font-size: 26px;
+			font-weight: 500;
+			border-bottom: solid 1px lightgrey;
+		}
+
+		#container{
+			display: grid;
+			grid-template-columns: 20% 80%;
+			min-height: 750px;
+		}
+
+		#navbar{
+			position: fixed;
+			height: 100%;
+			min-width: 250px;
+			border-right: solid 1px lightgrey;
+			border-bottom: solid 1px lightgrey;
+		}
+
+		#main-doc{
+			margin-left: 20rem;
+			margin-top: 3rem;
+			min-width: 900px;
+		}
+
+		.nav-link h2{
+			font-size: 22px;
+			font-weight: 500;
+			border-bottom: dotted 1px grey;
+		}
+
+		#navbar a{
+			text-decoration: none;
+		}
+
+		.main-section code{
+			display: block;
+			background-color: #efefef;
+			white-space: pre;
+			text-align: left;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div id="container">
+
+		<nav id="navbar">
+			<header>
+				<h1>d3.js Documentation</h1>
+			</header>
+			<a href="#d3-selections" class="nav-link" rel="internal">
+				<h2>d3 Selections</h2>
+			</a>
+			<a href="#basic-graphs" class="nav-link" rel="internal">
+				<h2>Basic Graphs</h2>
+			</a>
+			<a href="#complex-graphs" class="nav-link" rel="internal">
+				<h2>Complex Graphs</h2>
+			</a>
+			<a href="#d3-joins" class="nav-link" rel="internal">
+				<h2>d3 Joins</h2>
+			</a>
+			<a href="#nested-selections" class="nav-link" rel="internal">
+				<h2>Nested Selections</h2>
+			</a>
+
+		</nav>
+
+		<main id="main-doc">
+
+			<section id="d3-selections" class="main-section">
+				<header>
+					<h1>d3 Selections</h1>
+				</header>
+				<p>
+					D3 employs a declarative approach, operating on arbitrary sets of nodes called selections. Selectors are defined by the W3C Selectors API and supported natively by modern browsers. The above examples select nodes by tag name ("p" and "body", respectively). Elements may be selected using a variety of predicates, including containment, attribute values, class and ID.
+					For example, you can rewrite the above loop as:
+				</p>
+				<p>
+					<code>d3.selectAll("p").style("color", "white");</code>
+				</p>
+			</section>
+
+			<section id="basic-graphs" class="main-section">
+				<header>
+					<h1>Basic Graphs</h1>
+				</header>
+				<p>A bar chart is a simple yet perceptually-accurate way to visualize such data. This introductory tutorial covers how to make a bar chart using the D3 JavaScript library. First we’ll make a bare-bones version in HTML, then a more complete chart in Scalable Vector Graphics (SVG), and lastly animated transitions between views.</p>
+				<p>
+					<code>
+						var body = d3.select("body"); 
+						var div = body.append("div");
+						div.html("Hello, world!");
+					</code>
+				</p>
+				<ul>
+					<li>Bar chart</li>
+					<li>Pie chart</li>
+					<li>Column chart</li>
+					<li>Donut graph</li>
+					<li>Treemap</li>
+				</ul>
+			</section>
+
+			<section id="complex-graphs" class="main-section">
+				<header>
+					<h1>Complex Graphs</h1>
+				</header>
+				<p>
+					By creating a D3.js front-end on top of a middle transformations layer, the flexibility problem that Tableau suffers from is solved: data transformations can be done programmatically and then served to the front-end. The first step in creating a dashboard is to include the relevant libraries; I’ll include D3.js and the jQuery and jQuery UI libraries. I’ll also add some style elements for later use
+				</p>
+				<p>
+					<code>
+						var data = [];
+						// this is our data array
+
+						var startingDate = new Date(2012, 8, 18);
+						// this is a date object
+
+						for (var i = 0; i < 10; i++) { // loop 10 times to create 10 data objects
+
+						    var tmpObj = {};
+						    
+						    // this is a temporary data object
+						    tmpObj.date = new Date(
+						        startingDate.getFullYear(),
+						        startingDate.getMonth(),
+						        startingDate.getDate()+i
+						    );
+						    
+						    // the data for this data object. Increment it from the starting date.
+						    tmpObj.DAU = Math.round(Math.random() * 300); 
+						    
+						    data.push(tmpObj); // push the object into our data array
+						}
+					</code>
+				</p>
+			</section>
+
+			<section id="d3-joins" class="main-section">
+				<header>
+					<h1>d3 joins</h1>
+				</header>
+				<p>
+					Say you are making a basic scatterplot using D3, and you need to create some SVG circle elements to visualize your data. You may be surprised to discover that D3 has no primitive for creating multiple DOM elements. Instead of telling D3 how to do something, tell D3 what you want. You want the circle elements to correspond to data. You want one circle per datum. Instead of instructing D3 to create circles, then, tell D3 that the selection "circle" should correspond to data. This concept is called the data join:
+				</p>
+				<p>
+					<code>
+						svg.selectAll("circle")
+						  .data(data)
+						  .enter().append("circle")
+						    .attr("cx", function(d) { return d.x; })
+						    .attr("cy", function(d) { return d.y; })
+						    .attr("r", 2.5);
+					</code>
+				</p>
+			</section>
+
+			<section id="nested-selections" class="main-section">
+				<header>
+					<h1>Nested Selections</h1>
+				</header>
+				<p>
+					Hierarchical elements are often driven by similarly hierarchical data; nested selections are therefore convenient for binding data, too. To join the numbers to the corresponding table cells, first join the outer array (matrix) to the rows, and then join the inner arrays (matrix[0], matrix[1], …) to the cells:
+				</p>
+				<p>
+					<code>
+						var td = d3.selectAll("tbody tr")
+						    .data(matrix)
+						  .selectAll("td")
+						    .data(function(d, i) { return d; }); // d is matrix[i]
+					</code>
+				</p>
+			</section>
+
+		</main>
+
+	</div>
+</body>
+</html>
