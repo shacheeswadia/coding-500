@@ -262,6 +262,81 @@
 		// Alter values below to test your code
 		updateRecords(5439, "artist", "ABBA");
 
+		//Objects lookup 
+		//
+		//Setup
+		var contacts = [
+		    {
+		        "firstName": "Akira",
+		        "lastName": "Laine",
+		        "number": "0543236543",
+		        "likes": ["Pizza", "Coding", "Brownie Points"]
+		    },
+		    {
+		        "firstName": "Harry",
+		        "lastName": "Potter",
+		        "number": "0994372684",
+		        "likes": ["Hogwarts", "Magic", "Hagrid"]
+		    },
+		    {
+		        "firstName": "Sherlock",
+		        "lastName": "Holmes",
+		        "number": "0487345643",
+		        "likes": ["Intriguing Cases", "Violin"]
+		    },
+		    {
+		        "firstName": "Kristian",
+		        "lastName": "Vos",
+		        "number": "unknown",
+		        "likes": ["JavaScript", "Gaming", "Foxes"]
+		    }
+		];
+
+		function lookUpProfile(name, prop){
+		  
+		    for(var i = 0; i<contacts.length; i++){
+		        if(name == contacts[i]["firstName"]){
+		            if(contacts[i].hasOwnProperty(prop)){
+		                return contacts[i][prop];
+		            }else{
+		                return "No such property";
+		            }
+		        }
+		    }
+		    return "No such contact";
+		// Only change code above this line
+		}
+
+		// Change these values to test your function
+		var answer = lookUpProfile("Kristian", "lastName");
+		console.log(answer);
+
+
+		//Random Numbers - Whole number within a range
+		//
+		function randomRange(myMin, myMax) {
+
+		  return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+
+		}
+
+		// Change these values to test your function
+		var myRandom = randomRange(5, 15);
+
+		//
+		function convertToInteger(str) {
+		    var myInt = parseInt(str, 2);
+		    return myInt;
+		}
+
+		convertToInteger("10011");
+
+		//Multiple ternary operators
+		function checkSign(num) {
+		  return (num > 0) ? "positive" : (num < 0) ? "negative" : "zero"
+		}
+
+		checkSign(10);
 
 	</script>
 </body>
