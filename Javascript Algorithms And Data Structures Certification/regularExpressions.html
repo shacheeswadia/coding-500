@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basic Javascript</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//Testing regular expressions
+		//
+		let myString = "Hello, World!";
+		let myRegex = /Hello/;
+		let result = myRegex.test(myString);
+
+		console.log("Result: ", result);
+
+		//Testing regular expressions with alternatives
+		//
+		let petString = "James has a pet cat.";
+		let petRegex = /dog|cat|bird|fish/;
+		let resultPattern = petRegex.test(petString); 
+
+		console.log("Result:", resultPattern);
+
+
+		//Ignore the case of the characters while matching
+		//
+		let egString = "freeCodeCamp";
+		let fccRegex = /freecodecamp/i; 
+		let resultI = fccRegex.test(egString);
+
+		console.log("Result:", resultI);
+
+		//Extract matching string
+		//
+		let extractStr = "Extract the word 'coding' from this string.";
+		let codingRegex = /coding/; 
+		let resultM = extractStr.match(codingRegex); // Syntax is opposite to .test()
+		console.log("Result: ", resultM);
+
+		//Extract repeating instances of a match
+		//
+		let twinkleStar = "Twinkle, twinkle, little star";
+		let starRegex = /Twinkle/gi; 
+		let resultR = twinkleStar.match(starRegex); 
+
+		console.log("Result: ", resultR);
+
+	</script>
+</body>
+</html>
