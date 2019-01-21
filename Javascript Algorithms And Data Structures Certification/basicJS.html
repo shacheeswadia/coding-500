@@ -389,6 +389,12 @@
 
 		  const squaredIntegers = myArr.map(x => x*x);
 
+		  var testSqArr = [];
+
+		  for(var i=0; i<myArr.length; i++){
+		  	testSqArr[i] = myArr[i] * myArr[i];
+		  }
+
 		  // change code above this line
 		  return squaredIntegers;
 		};
@@ -414,10 +420,288 @@
 		  "use strict";
 		  return function sum(...args) {
 		    //const args = [ x, y, z ];
-		    return args.reduce((a, b) => a + b, 0);
+		    //return args.reduce((a, b) => a + b, 0);
+		    return args.reduce((a, b) => a + b);
 		  };
 		})();
 		console.log(sum(1, 2, 3)); // 	6
+
+		//Reduce function
+		var arry = [1,2,4];
+
+		var mult = arry.reduce((a,b) => a*b);
+		console.log(mult);
+
+		//Math.max operator
+		//
+		var arr = [6, 89, 3, 45];
+		var maximus = Math.max.apply(null, arr); // returns 89
+		//We had to use Math.max.apply(null, arr) because Math.max(arr) returns NaN. Math.max() expects comma-separated arguments, but not an array.
+
+		//Spread operator --> ...
+		//
+		var arr1 = ['JAN', 'FEB', 'MAR'];
+
+		var arr2 = [...arr1];
+
+		console.log(arr2);
+
+		//Object Value Assignment
+		//
+		const AVG_TEMPERATURES = {
+		  today: 77.5,
+		  tomorrow: 79
+		};
+
+		function getTempOfTmrw(avgTemperatures) {
+		  "use strict";
+		  // change code below this line
+		  const {tomorrow:tempOfTomorrow} = avgTemperatures; // change this line
+		  // change code above this line
+		  return tempOfTomorrow;
+		}
+
+		console.log(getTempOfTmrw(AVG_TEMPERATURES)); // should be 79
+
+		//Nested object assignment
+		//
+		const LOCAL_FORECAST = {
+		  today: { min: 72, max: 83 },
+		  tomorrow: { min: 73.3, max: 84.6 }
+		};
+
+		function getMaxOfTmrw(forecast) {
+		  "use strict";
+		  // change code below this line
+		  const {tomorrow : {max:maxOfTomorrow}} = forecast; // change this line
+		  // change code above this line
+		  return maxOfTomorrow;
+		}
+
+		console.log(getMaxOfTmrw(LOCAL_FORECAST)); // should be 84.6
+
+		//Swapping by array destructuring
+		//
+		let a = 8, b = 6;
+		(() => {
+		  "use strict";
+		  // change code below this line
+		  [a, b] = [b, a];
+		  // change code above this line
+		})();
+		console.log(a); // should be 6
+		console.log(b); // should be 8
+
+		//Removing first two elements of the array
+		//
+		//The rest element only works correctly as the last variable in the list. As in, you cannot use the rest operator to catch a subarray that leaves out last element of the original array.
+		//
+		const source = [1,2,3,4,5,6,7,8,9,10];
+		function removeFirstTwo(list) {
+		  "use strict";
+		  // change code below this line
+		  const [a, b, ...arr] = list; // change this
+		  // change code above this line
+		  return arr;
+		}
+		arr = removeFirstTwo(source);
+		console.log(arr); // should be [3,4,5,6,7,8,9,10]
+		console.log(source); // should be [1,2,3,4,5,6,7,8,9,10];
+
+
+		//Object as function parameter in destructuring
+		//
+		const stats = {
+		  max: 56.78,
+		  standard_deviation: 4.34,
+		  median: 34.54,
+		  mode: 23.87,
+		  min: -0.75,
+		  average: 35.85
+		};
+
+		const half = (function() {
+		  "use strict"; // do not change this line
+
+		  // change code below this line
+		  return ({max, min}) => {
+		    // use function argument destructuring
+		    return (max + min) / 2.0;
+		  };
+		  // change code above this line
+
+		})();
+
+		//This is ultimately equivalent to the following
+		/*
+		function half(){
+			return (stats.min + stats.max) / 2.0;
+		}*/
+
+		console.log(stats); // should be object
+		console.log(half(stats)); // should be 28.015
+
+		//String Literals
+		//
+		const result = {
+		  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+		  failure: ["no-var", "var-on-top", "linebreak"],
+		  skipped: ["id-blacklist", "no-dup-keys"]
+		};
+		function makeList(arr) {
+		  "use strict";
+
+		  // change code below this line
+		  const resultDisplayArray = [
+		  `<li class="text-warning">${arr[0]}</li>`,
+		  `<li class="text-warning">${arr[1]}</li>`,
+		  `<li class="text-warning">${arr[2]}</li>`
+		  ];
+		  // change code above this line
+
+		  return resultDisplayArray;
+		}
+		/**
+		 * makeList(result.failure) should return:
+		 * [ `<li class="text-warning">no-var</li>`,
+		 *   `<li class="text-warning">var-on-top</li>`, 
+		 *   `<li class="text-warning">linebreak</li>` ]
+		 **/
+		const resultDisplayArray = makeList(result.failure);
+
+		console.log(resultDisplayArray);
+
+		//Another example of literal string
+		//
+		const person = {
+		  name: "Zodiac Hasbro",
+		  age: 56
+		};
+
+		// Template literal with multi-line and string interpolation
+		const greeting = `Hello, my name is ${person.name}!
+		I am ${person.age} years old.`;
+
+		console.log(greeting); // prints
+		// Hello, my name is Zodiac Hasbro!
+		// I am 56 years old.
+		// 
+		
+		//Concise Object Literals
+		//
+		const createPerson = (name, age, gender) => {
+		  "use strict";
+		  // change code below this line
+		  const Person = {name, age, gender};
+		  return Person;
+		  // change code above this line
+		};
+		console.log(createPerson("Zodiac Hasbro", 56, "male")); // returns a proper object 
+		
+
+		//Functions inside objects
+		//
+		const myPerson = {
+		  name: "Taylor",
+		  sayHello() {
+		    return `Hello! My name is ${this.name}.`;
+		  }
+		};
+
+		console.log(myPerson.sayHello());
+
+		//Another example of function inside object
+		//
+		// change code below this line
+		const bicycle = {
+		  gear: 2,
+		  setGear(newGear) {
+		    "use strict";
+		    this.gear = newGear;
+		  }
+		};
+		// change code above this line
+		bicycle.setGear(5);
+		console.log(bicycle.gear);
+
+		//Revising functions and arrow notation
+		//
+		function example1(p1, p2){
+			return p1 + p2;
+		}
+
+		console.log(example1(3,5));
+
+		const example2 = (p1, p2) => p1+p2;
+
+		console.log(example2(4,5));
+
+		//Class syntax and constructor
+		//
+		class SpaceShuttle {
+		  constructor(targetPlanet){
+		    this.targetPlanet = targetPlanet;
+		  }
+		}
+		const zeus = new SpaceShuttle('Jupiter');
+		console.log(zeus.targetPlanet);
+
+		//Another example of class
+		//
+		function makeClass1() {
+		  class Vegetable{
+		    constructor(name){
+		      this.name = name;
+		    }
+		  }
+		  return Vegetable;
+		}
+
+		const Vegetable = makeClass1();
+		console.log("Vegetable", Vegetable, typeof(Vegetable));
+
+		const carrot = new Vegetable('carrot');
+		console.log("carrot", carrot, typeof(carrot));
+
+		const potato = new Vegetable('potato');
+		console.log(carrot.name); // => should be 'carrot'
+		console.log("potato", potato);
+		//Getter and Setter Functions
+		//
+		function makeClass2() {
+		  "use strict";
+		  class Thermostat{
+		    constructor(ftvalue){
+		      this.ftvalue = ftvalue;
+		    }
+		    get temperature(){
+		      return 5/9 * (this.ftvalue - 32);
+		    }
+		    set temperature(updatedValue){
+		      this.ftvalue = updatedValue * 9.0 / 5 + 32;
+		    }
+		  }
+		  return Thermostat;
+		}
+
+		const Thermostat = makeClass2();
+		const thermos = new Thermostat(78.5); // setting in Fahrenheit scale
+		let temp = thermos.temperature; // 24.44 in C
+		console.log(temp);
+		thermos.temperature = 26;
+		temp = thermos.temperature; // 26 in C
+
+		console.log(temp);
+
+		//Revising reduce in array
+		//
+		var myTestArr = [1,2,3,4];
+
+		myResult = myTestArr.reduce((x,y) => x*y);
+
+		myResultArr = myTestArr.map(x => x*5);
+
+		console.log(myResultArr, myTestArr);
 
 	</script>
 </body>
