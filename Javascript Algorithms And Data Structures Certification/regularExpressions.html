@@ -101,7 +101,7 @@
 		//Find recurring matches
 		//
 		let difficultSpelling = "Mississippi";
-		let myRegexRR = /s+/g; // Change this line
+		let myRegexRR = /s+/g; 
 		let resultRR = difficultSpelling.match(myRegexRR);
 		console.log("Result: ", resultRR);
 
@@ -162,8 +162,59 @@
 		//
 		let quoteSampleAN = "The five boxing wizards jump quickly.";
 		let alphabetRegexV2 = /\w/gi; 
-		let result = quoteSample.match(alphabetRegexV2).length; 
+		let resultAN = quoteSampleAN.match(alphabetRegexV2).length; 
 		
+		//Checking username validity
+		//
+		let username = "JackOfAllTrades";
+		let userCheck = /^[a-z]{2,}\d*$/i; //{2,} indicates minimum 2 characters
+		//\d indicates only numbers 
+		//Alternative /^[a-z]{2,}\w*/i
+		let resultU = userCheck.test(username);
+
+		//Matching white space
+		//
+		let sample = "Whitespace is important in separating words";
+		let countWhiteSpace = /\s+/g; //\S is everything EXCEPT white space
+		let resultWS = sample.match(countWhiteSpace);
+
+		//Check for optional character
+		//
+		let american = "color";
+		let british = "colour";
+		let rainbowRegex= /colou?r/;
+		rainbowRegex.test(american); // Returns true
+		rainbowRegex.test(british); // Returns true
+
+		//Use lookaheads in the pwRegex to match passwords that are greater than 5 characters long and have two consecutive digits.
+		//
+		let sampleWord = "astronaut";
+		let pwRegex = /(?=\w{5,})(?=\D*\d{2})/; 
+		let resultP = pwRegex.test(sampleWord);
+
+		//Use capture groups in reRegex to match numbers that are repeated only three times in a string, each separated by a space.
+		//
+		let repeatNum = "42 42 42";
+		let reRegex = /^(\d+)\s\1\s\1$/; 
+		let resultNum = reRegex.test(repeatNum);
+
+		//You can search and replace text in a string using .replace() on a string. The inputs for .replace() is first the regex pattern you want to search for. The second parameter is the string to replace the match or a function to do something.
+		//
+		let wrongText = "The sky is silver.";
+		let silverRegex = /silver/;
+		wrongText.replace(silverRegex, "blue");
+		// Returns "The sky is blue."
+
+		// Another Example
+		// 
+		"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
+		// Returns "Camp Code"
+
+		//Write a regex and use the appropriate string methods to remove whitespace at the beginning and end of strings.
+		//
+		let hello = "   Hello, World!  ";
+		let wsRegex = /^\s+|\s+$/g;; 
+		let resultWSBE = hello.replace(wsRegex, ''); 
 
 	</script>
 </body>
