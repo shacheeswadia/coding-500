@@ -219,16 +219,89 @@
 			myArr = [];
 
 			for(let i=0; i<myStr.length; i++){
-				(myStr[i].charAt(0).toUpperCase());
-				console.log(myStr[i].charAt(0).toUpperCase());
+				myArr[i] = myStr[i][0].toUpperCase() + myStr[i].slice(1, myStr[i].length).toLowerCase();
 			}
 
-  			console.log(myStr[2]);
-
-			return myStr;
+			return myArr.join(' ');
 		}
 
-		console.log(titleCase("I'm a little tea pot"))	;
+		console.log(titleCase("sHoRt AnD sToUt"));
+
+		//Use the array methods slice and splice to copy each element of the first array into the second array, in order.
+		//
+		function frankenSplice(arr1, arr2, n) {
+		    // It's alive. It's alive!
+			let arr3 = arr2.slice(),
+			finalArr = [];
+
+			finalArr = arr3.splice(0, n).concat(arr1).concat(arr2.slice(n));
+
+			return finalArr;
+		}
+
+		console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
+		//frankenSplice(["claw", "tentacle"], ["head", "shoulders", "knees", "toes"], 2)
+		
+		//Another way of doing it
+		//
+		function frankenSpliceOpt(arr1, arr2, n) {
+		  // It's alive. It's alive!
+		  let localArray = arr2.slice();
+		  for (let i = 0; i < arr1.length; i++) {
+		    localArray.splice(n, 0, arr1[i]);
+		    n++;
+		  }
+		  return localArray;
+		}
+
+		//Remove falsy values - false, null, 0, "", undefined, and NaN.
+		//
+
+		function bouncer(arr) {
+			console.log(arr.filter(Boolean)); //Boolean is a function
+		  	return arr.filter(Boolean);
+		}
+
+		//bouncer([7, "ate", "", false, 9]);
+		//bouncer([false, null, 0, NaN, undefined, ""]);
+		//bouncer([1, null, NaN, 2, undefined]);
+		bouncer([1, null, NaN, 2, undefined, true, false]);
+
+
+		//Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted.
+		//
+		function getIndexToIns(arr, num) {
+		  // Find my place in this sorted array.
+		  var myArr = arr.sort((a, b) => a - b);
+		  console.log(myArr);
+		  var myIndex = 0;
+		  let resultArr = myArr.slice();
+		  for(var i=0; i<resultArr.length; i++){
+		  	if(num > resultArr[i] && num <= (resultArr[i+1] ? resultArr[i+1] : num)){
+		  		myArr.splice(i+1,0,num);
+		  		if(num == resultArr[i+1] || num > resultArr[i]){
+		  			myIndex = i+1;
+		  		}else{
+		  			myIndex = i;
+		  		}
+		  	}
+		  }
+		  console.log("MyArr", myArr);
+		  return myIndex;
+		}
+
+		console.log(getIndexToIns([2, 5, 10], 15));
+		//getIndexToIns([10, 20, 30, 40, 50], 30)
+		//getIndexToIns([5, 3, 20, 3], 5)
+		//getIndexToIns([55, 40, 60], 50);
+		
+		//Simpler Solution --> Concat first and then sort
+		//
+		function getIndexToIns(arr, num) {
+
+			return arr.concat(num).sort((a,b) => a-b).indexOf(num);
+
+		}
 
 	</script>
 </body>
