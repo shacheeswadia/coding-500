@@ -195,6 +195,41 @@
 
 		//console.log(truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length));
 
+		
+		//Function with array and function as arguement
+		//
+		function findElement(arr, func) {
+		  //let num = 0;
+		  for(let i=0; i<arr.length; i++){
+		  	console.log(func(arr[3]));
+		    if (func(arr[i])){
+		      return arr[i];
+		    }
+		  }
+		  return undefined;
+		  //return num;
+		}
+		
+		console.log(findElement([1, 2, 3, 4], num => num % 2 === 0));
+
+		//Convert a sentence to Camel Case
+		//
+		function titleCase(str) {
+			let myStr = str.split(' '),
+			myArr = [];
+
+			for(let i=0; i<myStr.length; i++){
+				(myStr[i].charAt(0).toUpperCase());
+				console.log(myStr[i].charAt(0).toUpperCase());
+			}
+
+  			console.log(myStr[2]);
+
+			return myStr;
+		}
+
+		console.log(titleCase("I'm a little tea pot"))	;
+
 	</script>
 </body>
 </html>
