@@ -303,6 +303,73 @@
 
 		}
 
+		//Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+		//
+		function mutation(mainStrArr) {
+			var str1 = mainStrArr[0],
+			arr1 = str1.split(''),
+			str2 = mainStrArr[1],
+			arr2 = str2.split(''),
+			present = true;
+
+			if(arr1.length > arr2.length){
+				for(let i=0; i<arr2.length; i++){
+					for(let j=0; j<arr1.length; j++){
+						if(arr1[j].toLowerCase() == arr2[i].toLowerCase()){
+							break;
+						}
+
+						if(j==arr1.length-1){
+							present = false;
+						}
+					}
+				}
+			}else{
+				for(let i=0; i<arr1.length; i++){
+					for(let j=0; j<arr2.length; j++){
+						if(arr1[i].toLowerCase() == arr2[j].toLowerCase()){
+							break;
+						}
+
+						if(j==arr2.length-1){
+							present = false;
+						}
+						console.log("j", j);
+					}
+					console.log("i", i);
+					if(i==arr1.length-1){
+						if(present == false){
+							present = false;
+						}
+					}
+				}	
+			}
+
+			return present;
+		}
+
+		console.log(mutation(["hello", "neo"]));
+
+		//Simpler solution using indexOf
+		//
+		//
+		//
+		
+
+		//Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+		//
+		function chunkArrayInGroups(arr, size) {
+			var newArr = [];
+
+			while(arr.length){
+				newArr.push(arr.splice(0,size)); //splice returns an array 
+			}
+			
+			return newArr;
+		}
+
+		chunkArrayInGroups(["a", "b", "c", "d"], 2);
+
 	</script>
 </body>
 </html>
