@@ -22,7 +22,81 @@
 		}
 
 		var hound = new Dog();
-		
+
+		//Creating a general constructor
+		//
+		function Dog(name, color) {
+		  this.name = name;
+		  this.color = color;
+		  this.numLegs = 4;
+		}
+
+		let terrier = new Dog("tuffy", "brown");
+
+		//Check whether given instance is that of the given constructor
+		//
+		function House(numBedrooms) {
+		  this.numBedrooms = numBedrooms;
+		}
+
+		// Add your code below this line
+
+		let myHouse = new House(3);
+
+		console.log("myHouse", myHouse instanceof House);
+
+		//hasOwnProperty
+		//
+		function Bird(name) {
+		  this.name = name;
+		  this.numLegs = 2;
+		}
+
+		let canary = new Bird("Tweety");
+		let ownProps = [];
+		// Add your code below this line
+
+		for (let property in canary) {
+		  if(canary.hasOwnProperty(property)) {
+		    ownProps.push(property);
+		  }
+		}
+
+		//Reduce repetition by using "prototype"
+		//
+		function Dog(name) {
+		  this.name = name;
+		}
+
+		Dog.prototype.numLegs = 4;
+		let beagle = new Dog("Snoopy");
+
+		//Iterate through oen properties and prototype properties
+		//
+		function Dog(name) {
+		  this.name = name;
+		}
+
+		Dog.prototype.numLegs = 4;
+
+		let beagle = new Dog("Snoopy");
+
+		let ownProps = [];
+		let prototypeProps = [];
+
+		// Add your code below this line 
+		for (let property in beagle) {
+		  if(beagle.hasOwnProperty(property)) {
+		    ownProps.push(property);
+		  } else {
+		    prototypeProps.push(property);
+		  }
+		}
+
+		console.log(ownProps); // prints ["name"]
+		console.log(prototypeProps); // prints ["numLegs"]
+
+
 	</script>
 </body>
 </html>
