@@ -70,6 +70,61 @@
 		bird.glide();
 		boat.glide();
 
+		//Closure - Creates private properties and priviledged methods to access those properties
+		//
+		function Bird() {
+		  let weight = 15;
+		  
+		  this.getWeight = function(){
+		    return weight;
+		  }
+		}
+
+		let ducky = new Bird();
+		console.log(ducky.getWeight());
+
+
+		//immediately invoked function expression (IIFE).
+		(function() {
+		  console.log("A cozy nest is ready");
+		})();
+
+		//IIFE for creating modules
+		//
+		/* Two functions
+		function glideMixin(obj) {
+		  obj.glide = function() {
+		    console.log("Gliding on the water");
+		  };
+		}
+		function flyMixin(obj) {
+		  obj.fly = function() {
+		    console.log("Flying, wooosh!");
+		  };
+		}
+		*/
+	
+		//Package both the functions into IIFE module 
+		//
+		let motionModule = (function () {
+		  return {
+		    glideMixin: function (obj) {
+		      obj.glide = function() {
+		        console.log("Gliding on the water");
+		      };
+		    },
+		    flyMixin: function(obj) {
+		      obj.fly = function() {
+		        console.log("Flying, wooosh!");
+		      };
+		    }
+		  }
+		}) ();
+
+		//Access the methods as follows
+		//
+		motionModule.glideMixin(ducky);
+		ducky.glide();
 
 	</script>
 
