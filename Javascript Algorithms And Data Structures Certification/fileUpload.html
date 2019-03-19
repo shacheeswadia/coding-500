@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>File upload with php and javascript</title>
+</head>
+<body>
+
+	<form id="fileUploadForm" action="uploadFile.php" method="post" enctype="multipart/form-data" onsub>
+		<input type="file" id="fileUploadInput" name="csv" size="25" onclick="uploadFile(this)">
+	</form>
+
+	<script type="text/javascript">
+		function uploadFile(){
+			document.getElementById("fileUploadForm").submit();
+		}
+	</script>
+
+</body>
+</html>

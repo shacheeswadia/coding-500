@@ -33,6 +33,8 @@
 
 		let terrier = new Dog("tuffy", "brown");
 
+		console.log("terrier type", typeof(terrier), "Dog type", typeof(Dog));
+
 		//Check whether given instance is that of the given constructor
 		//
 		function House(numBedrooms) {
@@ -53,12 +55,12 @@
 		}
 
 		let canary = new Bird("Tweety");
-		let ownProps = [];
+		let ownProperties = [];
 		// Add your code below this line
 
 		for (let property in canary) {
 		  if(canary.hasOwnProperty(property)) {
-		    ownProps.push(property);
+		    ownProperties.push(property);
 		  }
 		}
 
@@ -79,14 +81,14 @@
 
 		Dog.prototype.numLegs = 4;
 
-		let beagle = new Dog("Snoopy");
+		let beagle2 = new Dog("Snoopy");
 
 		let ownProps = [];
 		let prototypeProps = [];
 
 		// Add your code below this line 
-		for (let property in beagle) {
-		  if(beagle.hasOwnProperty(property)) {
+		for (let property in beagle2) {
+		  if(beagle2.hasOwnProperty(property)) {
 		    ownProps.push(property);
 		  } else {
 		    prototypeProps.push(property);
@@ -96,6 +98,123 @@
 		console.log(ownProps); // prints ["name"]
 		console.log(prototypeProps); // prints ["numLegs"]
 
+		function Dog(name) {
+		  this.name = name; 
+		}
+
+		Dog.prototype = {
+		  numLegs: 4, 
+		  speak: function() {
+		    console.log("bow wow");
+		  },
+		  describe: function() {
+		    console.log("My name is " + this.name);
+		  }
+		};
+
+		var labrador = new Dog("Keto");
+
+		console.log("Type of Dog", typeof(Dog.prototype), "lab", labrador, "labrador.numLegs", labrador.numLegs, "labrador.speak");
+		labrador.speak(); //This function already has console.log inside it
+
+		//Define a constructor and a constructor property 
+		function Dog(name) {
+		  this.name = name; 
+		}
+
+		// Modify the code below this line
+		Dog.prototype = {
+		  constructor: Dog,
+		  numLegs: 2, 
+		  eat: function() {
+		    console.log("nom nom nom"); 
+		  }, 
+		  describe: function() {
+		    console.log("My name is " + this.name); 
+		  }
+		};
+
+		//Check the prototype with isPrototypeOf
+		//
+		function Dog(name) {
+		  this.name = name;
+		}
+
+		let beagle1 = new Dog("Snoopy");
+
+		Dog.prototype.isPrototypeOf(beagle);
+
+		//Create a supertype to follow DRY priniciple - Don't Repeat Yourself
+		//
+		Bird.prototype = {
+		  constructor: Bird,
+		  /*describe: function() {
+		    console.log("My name is " + this.name);
+		  }*/
+		};
+
+		Dog.prototype = {
+		  constructor: Dog,
+		  /*describe: function() {
+		    console.log("My name is " + this.name);
+		  }*/
+		};
+
+		//function Animal() { };
+
+		Animal.prototype = {
+		  constructor: Animal, 
+		  describe: function() {
+		    console.log("My name is " + this.name);
+		  },
+		  eat: function() {
+		    console.log("nom nom nom"); 
+		  }
+		};
+
+		var duck = Object.create(Animal.prototype);
+
+		//duck.describe();
+		duck.eat();
+
+		//Dog.prototype = Object.create(Animal.prototype);
+
+		//let husky = new Dog('suz');
+
+		//husky.describe();
+
+		//Animal is the super parent --> Dog is type of animal --> Husky is type of dog and suz is the name of the husky type dog
+		//
+		//The whole code
+		//
+		function Animal() { }
+		Animal.prototype = {
+			eat: function() { 
+				console.log("nom nom nom"); 
+			},
+			describe: function() {
+		    	console.log("My name is " + this.name);
+		  	}
+		};
+
+		function Dog() { }
+
+		// Add your code below this line
+		Dog.prototype = Object.create(Animal.prototype);
+
+		Dog.prototype.constructor = Dog;
+
+		Dog.prototype.bark = function(){
+		    console.log('Woof!');
+		}
+
+		// Add your code above this line
+
+		let siberianHusky = new Dog('Suz');
+
+		siberianHusky.describe();
+		siberianHusky.eat(); // Should print "nom nom nom"
+		siberianHusky.bark(); // Should print "Woof!"
 
 	</script>
 </body>

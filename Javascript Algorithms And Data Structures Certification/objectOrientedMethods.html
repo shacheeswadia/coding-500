@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dog object</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+		function Animal() { };
+
+		Animal.prototype = {
+			eat: function() { 
+				console.log("nom nom nom"); 
+			},
+			describe: function() {
+		    	console.log("My name is " + this.name);
+		  	}
+		};
+
+		//function Dog() { }
+		function Dog(name) {
+			this.name = name; 
+		}
+
+		// Add your code below this line
+		Dog.prototype = Object.create(Animal.prototype);
+
+		Dog.prototype.constructor = Dog;
+
+		Dog.prototype.bark = function(){
+		    console.log('Woof!');
+		}
+
+		/*Dog.prototype = {
+			bark: function() {
+				console.log('Woof!');
+			}
+		};*/
+
+		let siberianHusky = new Dog('Suz');
+
+		siberianHusky.describe();
+		siberianHusky.eat(); // Should print "nom nom nom"
+		siberianHusky.bark(); // Should print "Woof!"
+
+
+		//Creating methods that can be used by unrelated objects
+		//
+		let bird = {
+		  name: "Donald",
+		  numLegs: 2
+		};
+
+		let boat = {
+		  name: "Warrior",
+		  type: "race-boat"
+		};
+
+		// Add your code below this line
+		let glideMixin = function(obj){
+		    obj.glide = function(){
+		        console.log("Gliding!");
+		    }
+		}
+
+		glideMixin(bird);
+		glideMixin(boat);
+
+		bird.glide();
+		boat.glide();
+
+
+	</script>
+
+</body>
+</html>
