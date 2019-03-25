@@ -447,6 +447,18 @@
 		}
 		nonMutatingSort(globalArray);
 
+		/* ######### Fill in the urlSlug function so it converts a string title and returns the hyphenated version for the URL.###### */
+
+		// the global variable
+		var globalTitle = "Winter Is Coming";
+
+		function urlSlug(title) {
+			return title.split(/\W/).join('-').toLowerCase(); //split(/\s/) can also be used
+		}
+
+		var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
+		console.log("title now", winterComing);
+
 	</script>
 </body>
 </html>
