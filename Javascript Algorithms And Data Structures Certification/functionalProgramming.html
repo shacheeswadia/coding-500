@@ -531,7 +531,90 @@
 
 		sumAll([10, 5]);
 
+		//Return an array with the difference between the 2 arrays
+		//
+		function diffArray(arr1, arr2) {
+			var newArr = [];
 
-	</script>
+			function checkIfPresent(check1, check2){
+				for(var i=0; i<check1.length; i++){
+					if(check2.indexOf(check1[i]) == -1){
+						newArr.push(check1[i]);
+					} 
+				}
+			}
+
+			checkIfPresent(arr1, arr2);
+			checkIfPresent(arr2, arr1);
+
+			// Same, same; but different.
+			return newArr;
+		}
+
+		diffArray([1, 2, 3, 5], [2, 3, 4, 5]);
+
+		//Remove given elements
+		//
+		function destroyer(arr) {
+			// Remove all the values
+		  	console.log(arguments);
+
+		  	for(var j=1; j<arguments.length; j++){
+			  	for(var i=0; i<arr.length; i++){
+			  		if(arr.indexOf(arguments[j]) !== -1){
+			  			arr.splice(arr.indexOf(arguments[j]), 1);
+			  		}
+			  		//splice makes the array shorter and therefore to enter the for loop, i has to be reset
+			  		if(arr.length == 1){
+				  		i = -1;
+				  	}
+			  	}
+		  	}
+
+			return arr;
+		}
+
+		//destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+		//destroyer([3, 5, 1, 2, 2], 2, 3, 5)
+		destroyer([2, 3, 2, 3], 2, 3);
+
+		//Find a match in the object
+		//
+		function whatIsInAName(collection, source) {
+			// What's in a name?
+			var arr = [],
+				aProps = Object.getOwnPropertyNames(source),
+    			bProps;
+
+			console.log(collection);
+
+			//console.log(Object.keys(source), Object.values(source));
+
+			collection.some(function(d){
+    			bProps = Object.getOwnPropertyNames(d);
+
+    			for (var i = 0; i < bProps.length; i++) {
+			        var propName = bProps[i];
+
+			        console.log("propName", propName);
+			        // If values of same property are not equal,
+			        // objects are not equivalent
+			        if (source[propName] == d[propName]) {
+			            arr.push(d);
+			        }
+			    }
+			})
+
+			console.log("Object Array", arr);
+
+
+			return arr;
+		}
+
+		whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 });
+		//should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie":2 }]
+
+
+	</script>	
 </body>
 </html>
