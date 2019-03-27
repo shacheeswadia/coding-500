@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shortest word and its length in a sentence</title>
+</head>
+<body>
+
+	<div>
+		<h3>Enter your sentence here:</h3>
+		<input id="sentence" type="text" name="sentence"></input>
+		<button type="submit" onclick="findShort()">Enter</button>
+		<h4>The result is: </h4>
+		<p id="result"></p>
+	</div>
+
+	<script type="text/javascript">
+		
+		function findShort(s){
+			var s = document.getElementById('sentence').value,
+				charCount = 20,
+				sWord;
+			  
+			var strArr = s.split(' ');
+
+			strArr.filter(function(a){
+				if(charCount > a.length){
+					charCount = a.length;
+					sWord = a;
+				}
+			})
+
+			var myResult = 'Shortest word is ' + sWord + ' and its length is ' + charCount;
+
+			document.getElementById("result").innerHTML = myResult;
+
+			//return 
+		}
+
+		//console.log(findShort("This sentence makes no sense"));
+	</script>
+
+</body>
+</html>
