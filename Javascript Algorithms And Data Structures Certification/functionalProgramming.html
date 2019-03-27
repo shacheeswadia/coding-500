@@ -581,37 +581,20 @@
 		//Find a match in the object
 		//
 		function whatIsInAName(collection, source) {
-			// What's in a name?
-			var arr = [],
-				aProps = Object.getOwnPropertyNames(source),
-    			bProps;
+			var sKeys = Object.keys(source);
 
-			console.log(collection);
+			return collection.filter(function(cObj){
+				for(var i=0; i<sKeys.length; i++){
+					if(!cObj.hasOwnProperty(sKeys[i]) || cObj[sKeys[i]] !== source[sKeys[i]]){
+						return false
+					}
+				}
+				return true;
+			});					
 
-			//console.log(Object.keys(source), Object.values(source));
-
-			collection.some(function(d){
-    			bProps = Object.getOwnPropertyNames(d);
-
-    			for (var i = 0; i < bProps.length; i++) {
-			        var propName = bProps[i];
-
-			        console.log("propName", propName);
-			        // If values of same property are not equal,
-			        // objects are not equivalent
-			        if (source[propName] == d[propName]) {
-			            arr.push(d);
-			        }
-			    }
-			})
-
-			console.log("Object Array", arr);
-
-
-			return arr;
 		}
 
-		whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 });
+		console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 }));
 		//should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie":2 }]
 
 
