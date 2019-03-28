@@ -515,8 +515,6 @@
 			fnum = arr[0],
 			lnum = arr[arr.length-1]; //arr[1] can be used since we are providing only 2 numbers
 
-			console.log(arr, fnum, lnum);
-
 			for(var i=fnum; i<=lnum; i++){
 				sum += i;
 			}
@@ -557,7 +555,6 @@
 		//
 		function destroyer(arr) {
 			// Remove all the values
-		  	console.log(arguments);
 
 		  	for(var j=1; j<arguments.length; j++){
 			  	for(var i=0; i<arr.length; i++){
@@ -586,17 +583,32 @@
 			return collection.filter(function(cObj){
 				for(var i=0; i<sKeys.length; i++){
 					if(!cObj.hasOwnProperty(sKeys[i]) || cObj[sKeys[i]] !== source[sKeys[i]]){
-						return false
+						return false;
 					}
 				}
-				return true;
-			});					
 
+				return true;
+			});	
+		
 		}
 
 		console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 }));
 		//should return [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie":2 }]
+		
+		//Convert string to spinal tap case
+		//
+		function spinalCase(str) {
+		  // "It's such a fine line between stupid, and clever."
+		  // --David St. Hubbins
 
+		  var myStr = str.split(/\W/).join('-').toLowerCase();
+		  
+		  console.log(myStr);
+
+		  return str;
+		}
+
+		spinalCase('The_Andy_<wbr>Griffith_Show');
 
 	</script>	
 </body>
