@@ -370,6 +370,27 @@
 
 		chunkArrayInGroups(["a", "b", "c", "d"], 2);
 
+		//Pig latin string coversion
+		//
+		function translatePigLatin(str) {
+			var myRegex = /[aeiou]/gi,
+			myWord = '';
+
+			if(str[0].match(myRegex)){
+				myWord = str + 'way';
+			}else if(str.match(myRegex) == null){
+				myWord = str + 'ay';
+			}else{
+				var vowelIndex = str.indexOf(str.match(myRegex)[0]);
+				myWord = str.substr(vowelIndex) + str.substr(0, vowelIndex) + 'ay';
+			}
+
+			console.log(myWord);
+			return myWord;
+		}
+
+		translatePigLatin("consonant");
+
 	</script>
 </body>
 </html>
