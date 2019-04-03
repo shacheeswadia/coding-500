@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bus Passengers</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		function passengers(pArr){
+			var pEnter = 0,
+			pExit = 0,
+			pRemaining = 0;
+
+			pArr.forEach(function(p){
+				pEnter = p[0];
+				pExit = p[1];
+				pRemaining += pEnter - pExit;
+			});
+
+			console.log(pRemaining);
+
+			return pRemaining;
+		}
+
+		passengers([[10,0],[3,5],[2,1],[2,6]]);
+
+	</script>
+</body>
+</html>
