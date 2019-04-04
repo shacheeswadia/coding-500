@@ -390,6 +390,68 @@
 		}
 
 		translatePigLatin("consonant");
+		
+		//Search and replace
+		//
+		function myReplace(str, before, after) {
+
+			//var index = str.indexOf(before);
+			//console.log(index);
+			
+			var strArr = str.split(' ');
+
+			var newStrArr = strArr.map(function(a){
+				if(a == before){ 
+					if(a.charAt(0) == a.charAt(0).toUpperCase()){
+						a = after.charAt(0).toUpperCase() + after.slice(1);
+						return a;
+					}
+					a = after;
+				}
+				return a;
+			});
+
+			var myStr = newStrArr.join(' ');
+			console.log(myStr);
+			return myStr;
+		}
+
+		/* Alternative solution is finding the index of the given word and using replace */
+
+		//myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+		//myReplace("Let us go to the store", "store", "mall");
+		myReplace("He is Sleeping on the couch", "Sleeping", "sitting");
+
+
+		//DNA pairing
+		//
+		function pairElement(str) {
+			var pairArr = str.split(''),
+			myArray = [];
+			console.log(pairArr);
+
+			for(var i=0; i<pairArr.length; i++){
+				myArray[i] = new Array;
+				myArray[i].push(pairArr[i]);
+			}
+
+			for(var j=0; j<myArray.length; j++){
+				if(myArray[j] == 'G'){
+					myArray[j].push('C');
+				}else if(myArray[j] == 'C'){
+					myArray[j].push('G');
+				}else if(myArray[j] == 'A'){
+					myArray[j].push('T');
+				}else if(myArray[j] == 'T'){
+					myArray[j].push('A');
+				}
+			}
+
+			console.log(myArray);
+			//return str;
+		}
+
+		pairElement("GCG"); //A-T, T-A, C-G, G-C
 
 	</script>
 </body>
